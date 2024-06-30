@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>留言表单</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f7f7f7;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 100px;
+        }
+        #warning-message {
+            color: red;
+            font-weight: bold;
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>留言表单</h2>
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="message">留言:</label>
+            <textarea id="message" class="message-input" placeholder="在这里输入你的留言，但我们不欢迎你的留言..."></textarea>
+        </div>
+        <div id="warning-message">你最好再考虑一下是否要联系我们。</div>
+        <button type="button" id="submit-button">提交</button>
+    </form>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+        var messageInput = document.getElementById('message');
+        var warningMessage = document.getElementById('warning-message');
+        var submitButton = document.getElementById('submit-button');
+
+        submitButton.addEventListener('click', function(event) {
+            // 阻止表单默认提交行为
+            event.preventDefault();
+            // 检查输入长度是否超过4个字符
+            if (messageInput.value.length > 4) {
+                // 隐藏输入框
+                messageInput.style.display = 'none';
+                // 显示警告信息
+                warningMessage.style.display = 'block';
+                // 禁用按钮
+                submitButton.disabled = true;
+ // 隐藏输入框
+                submitbutton.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
